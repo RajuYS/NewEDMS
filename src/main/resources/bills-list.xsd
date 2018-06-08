@@ -1,0 +1,30 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           targetNamespace="http://lmh.com/search-ws"
+           xmlns:tns="http://lmh.com/search-ws"
+           elementFormDefault="qualified">
+    <xs:element name="getBillsListRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="repositoryName" type="xs:string"/>
+                <xs:element name="c_account_no" type="xs:string"/>
+                <xs:element name="c_mobile_no" type="xs:string"/>
+                <xs:element name="c_customer_name" type="xs:string"></xs:element>
+                <xs:element name="c_bill_date" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="getBillsListResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="BillsList" type="tns:BillsList" minOccurs="1" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:complexType name="BillsList">
+        <xs:sequence>
+            <xs:element name="object_name" type="xs:string"/>
+            <xs:element name="object_id" type="xs:string"/>
+            <xs:element name="response_date" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
